@@ -14,14 +14,17 @@ const ContentGenerator = () => {
   const [seoScore, setSeoScore] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+
+  console.log('BASE_URL:', BASE_URL); // Debug log to check BASE_URL
   // API CALL with improved error handling
   const generateContent = async () => {
     setLoading(true);
     setError('');
     
     try {
-      const response = await fetch('http://localhost:5000/generate', {
+      const response = await fetch(`${BASE_URL}/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

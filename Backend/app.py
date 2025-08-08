@@ -65,5 +65,3 @@ def generate_content():
         logger.exception("Error generating content")
         return jsonify({'error': str(e)}), 500
 
-
-# No app.run() here — use Gunicorn or another WSGI server in production
